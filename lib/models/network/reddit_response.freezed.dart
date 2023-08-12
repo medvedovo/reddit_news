@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$RedditResponse {
   bool get isSuccess => throw _privateConstructorUsedError;
-  NewsContainer? get data => throw _privateConstructorUsedError;
+  List<NewsEntry>? get data => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,9 +31,7 @@ abstract class $RedditResponseCopyWith<$Res> {
           RedditResponse value, $Res Function(RedditResponse) then) =
       _$RedditResponseCopyWithImpl<$Res, RedditResponse>;
   @useResult
-  $Res call({bool isSuccess, NewsContainer? data, String? error});
-
-  $NewsContainerCopyWith<$Res>? get data;
+  $Res call({bool isSuccess, List<NewsEntry>? data, String? error});
 }
 
 /// @nodoc
@@ -61,24 +59,12 @@ class _$RedditResponseCopyWithImpl<$Res, $Val extends RedditResponse>
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as NewsContainer?,
+              as List<NewsEntry>?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $NewsContainerCopyWith<$Res>? get data {
-    if (_value.data == null) {
-      return null;
-    }
-
-    return $NewsContainerCopyWith<$Res>(_value.data!, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
-    });
   }
 }
 
@@ -90,10 +76,7 @@ abstract class _$$_RedditResponseCopyWith<$Res>
       __$$_RedditResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isSuccess, NewsContainer? data, String? error});
-
-  @override
-  $NewsContainerCopyWith<$Res>? get data;
+  $Res call({bool isSuccess, List<NewsEntry>? data, String? error});
 }
 
 /// @nodoc
@@ -117,9 +100,9 @@ class __$$_RedditResponseCopyWithImpl<$Res>
           : isSuccess // ignore: cast_nullable_to_non_nullable
               as bool,
       data: freezed == data
-          ? _value.data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as NewsContainer?,
+              as List<NewsEntry>?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -131,12 +114,22 @@ class __$$_RedditResponseCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_RedditResponse implements _RedditResponse {
-  const _$_RedditResponse({required this.isSuccess, this.data, this.error});
+  const _$_RedditResponse(
+      {required this.isSuccess, final List<NewsEntry>? data, this.error})
+      : _data = data;
 
   @override
   final bool isSuccess;
+  final List<NewsEntry>? _data;
   @override
-  final NewsContainer? data;
+  List<NewsEntry>? get data {
+    final value = _data;
+    if (value == null) return null;
+    if (_data is EqualUnmodifiableListView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? error;
 
@@ -152,12 +145,13 @@ class _$_RedditResponse implements _RedditResponse {
             other is _$_RedditResponse &&
             (identical(other.isSuccess, isSuccess) ||
                 other.isSuccess == isSuccess) &&
-            (identical(other.data, data) || other.data == data) &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isSuccess, data, error);
+  int get hashCode => Object.hash(runtimeType, isSuccess,
+      const DeepCollectionEquality().hash(_data), error);
 
   @JsonKey(ignore: true)
   @override
@@ -169,13 +163,13 @@ class _$_RedditResponse implements _RedditResponse {
 abstract class _RedditResponse implements RedditResponse {
   const factory _RedditResponse(
       {required final bool isSuccess,
-      final NewsContainer? data,
+      final List<NewsEntry>? data,
       final String? error}) = _$_RedditResponse;
 
   @override
   bool get isSuccess;
   @override
-  NewsContainer? get data;
+  List<NewsEntry>? get data;
   @override
   String? get error;
   @override

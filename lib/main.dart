@@ -4,13 +4,16 @@ import 'package:reddit_news/locator.dart';
 import 'package:reddit_news/pages/home_page.dart';
 import 'package:reddit_news/states/theme_notifier.dart';
 import 'package:reddit_news/theme.dart';
+import 'package:reddit_news/utils/preferences_helper.dart';
 
-final themeProvider = StateNotifierProvider<ThemeNotifier, ThemeMode>(
-    (ref) => ThemeNotifier(ThemeMode.light));
-
+final themeProvider = StateNotifierProvider<ThemeNotifier, ThemeMode>((ref) =>
+    ThemeNotifier(locator.get<PreferencesHelper>().isDark()
+        ? ThemeMode.dark
+        : ThemeMode.light));
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupDI();
+  locator.get<PreferencesHelper>().init();
   runApp(const ProviderScope(child: MyApp()));
 }
 

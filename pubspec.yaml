@@ -46,7 +46,6 @@ dependencies:
   cached_network_image: ^3.2.3
   shared_preferences: ^2.2.0
   google_fonts: ^5.1.0
-  connectivity_plus: ^4.0.2
 
 dev_dependencies:
   flutter_test:
