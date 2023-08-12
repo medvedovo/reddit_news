@@ -30,7 +30,7 @@ ThemeData customDark() {
 
 ThemeData customLight() {
   final ThemeData light = ThemeData.light();
-  final font1 = GoogleFonts.ptSans();
+  final font1 = GoogleFonts.ptSans(color: Colors.black87);
   return light.copyWith(
       useMaterial3: true,
       textTheme: GoogleFonts.ptSansTextTheme().copyWith(
