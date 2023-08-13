@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reddit_news/locator.dart';
 import 'package:reddit_news/pages/home_page.dart';
@@ -11,7 +12,8 @@ final themeProvider = StateNotifierProvider<ThemeNotifier, ThemeMode>((ref) =>
         ? ThemeMode.dark
         : ThemeMode.light));
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   setupDI();
   locator.get<PreferencesHelper>().init();
   runApp(const ProviderScope(child: MyApp()));

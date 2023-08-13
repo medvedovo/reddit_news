@@ -7,9 +7,9 @@ class ThumbnailPlaceholder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 200,
+      height: 180,
+      color: Colors.black26,
       alignment: Alignment.center,
-      color: Colors.grey,
       child: const Icon(Icons.image),
     );
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:reddit_news/locator.dart';
 import 'package:reddit_news/main.dart';
-import 'package:reddit_news/network/reddit_service.dart';
-import 'package:reddit_news/widgets/loading_indicator.dart';
+import 'package:reddit_news/pages/news_page.dart';
+import 'package:reddit_news/pages/search_page.dart';
 
 final currentTabProvider = StateProvider<int>((ref) => 0);
 
@@ -12,14 +12,11 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    FlutterNativeSplash.remove();
     return Scaffold(
         appBar: AppBar(
           title: const Text('Новости'),
           actions: [
-            IconButton(
-                onPressed: () async =>
-                    await locator.get<RedditService>().getNews(),
-                icon: const Icon(Icons.cloud_download)),
             IconButton(
                 onPressed: () => ref.read(themeProvider.notifier).toggleTheme(),
                 icon: Icon(ref.watch(themeProvider) == ThemeMode.light
@@ -28,8 +25,8 @@ class HomePage extends ConsumerWidget {
           ],
         ),
         body: <Widget>[
-          LoadingIndicator(),
-          LoadingIndicator()
+          const NewsPage(),
+          const SearchPage()
         ][ref.watch(currentTabProvider)],
         bottomNavigationBar: NavigationBar(
           onDestinationSelected: (int index) {
