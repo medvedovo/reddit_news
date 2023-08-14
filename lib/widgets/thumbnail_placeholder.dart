@@ -8,7 +8,7 @@ class ThumbnailPlaceholder extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 180,
-      color: Colors.black26,
+      color: Colors.black12,
       alignment: Alignment.center,
       child: const Icon(Icons.image),
     );
