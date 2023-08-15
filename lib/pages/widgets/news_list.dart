@@ -54,7 +54,7 @@ class NewsList extends ConsumerWidget {
             }
           }
           return AnimatedSwitcher(
-              duration: const Duration(milliseconds: 300), child: widget);
+              duration: const Duration(milliseconds: 200), child: widget);
         });
   }
 }
