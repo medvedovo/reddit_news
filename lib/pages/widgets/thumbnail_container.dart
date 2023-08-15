@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:reddit_news/widgets/thumbnail_placeholder.dart';
+import 'package:reddit_news/pages/widgets/thumbnail_placeholder.dart';
 
 class ThumbnailContainer extends StatelessWidget {
   final String url;

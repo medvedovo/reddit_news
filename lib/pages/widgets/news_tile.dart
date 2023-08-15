@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reddit_news/models/ui/news_entry.dart';
-import 'package:reddit_news/widgets/thumbnail_container.dart';
+import 'package:reddit_news/pages/widgets/thumbnail_container.dart';
 
 class NewsTile extends StatelessWidget {
   final NewsEntry data;

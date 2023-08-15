@@ -26,7 +26,9 @@ class HomePage extends ConsumerWidget {
         ),
         body: <Widget>[
           const NewsPage(),
-          const SearchPage()
+          SearchPage(
+            textEditingController: TextEditingController(),
+          )
         ][ref.watch(currentTabProvider)],
         bottomNavigationBar: NavigationBar(
           onDestinationSelected: (int index) {
