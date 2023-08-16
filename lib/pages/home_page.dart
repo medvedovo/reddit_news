@@ -12,7 +12,9 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final currentTab = ref.watch(currentTabProvider);
     FlutterNativeSplash.remove();
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('Новости'),
@@ -29,12 +31,12 @@ class HomePage extends ConsumerWidget {
           SearchPage(
             textEditingController: TextEditingController(),
           )
-        ][ref.watch(currentTabProvider)],
+        ][currentTab],
         bottomNavigationBar: NavigationBar(
           onDestinationSelected: (int index) {
             ref.read(currentTabProvider.notifier).state = index;
           },
-          selectedIndex: ref.watch(currentTabProvider),
+          selectedIndex: currentTab,
           destinations: const <Widget>[
             NavigationDestination(
               icon: Icon(Icons.newspaper),
