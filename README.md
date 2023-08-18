@@ -8,6 +8,11 @@
 - [app-arm64-v8a-release.apk](https://disk.yandex.ru/d/RqPdfBew_er4_g)
 - [app-x86_64-release.apk](https://disk.yandex.ru/d/S4OzcsagFMplow)
 
+## Ссылка на демонстрацию
+
+[Демо](https://disk.yandex.ru/i/v3aNavsJKK0Cqw)
+
+
 ## Описание
 
 Реализован вывод новостей полученных по API. Новости кешируются в локальной БД (Isar), уникальным ключём является идентификатор новости пришедший по API.<br>
